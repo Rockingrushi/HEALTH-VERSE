@@ -140,7 +140,6 @@ HealthVerse enforces strict role-based access control (RBAC) powered by **Supaba
 ## 8. Database Architecture
 
 The application utilizes relational tables designed in PostgreSQL and hosted on Supabase:
-
 ```mermaid
 erDiagram
     users ||--o{ hospitals : "administers"
