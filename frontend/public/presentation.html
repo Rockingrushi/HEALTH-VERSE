@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealthVerse — Presentation Deck</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0F172A;
+      color: #F8FAFC;
+      overflow: hidden;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .glass {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .glass-teal {
+      background: rgba(15, 118, 110, 0.15);
+      border: 1px solid rgba(45, 212, 191, 0.3);
+    }
+    .glass-emerald {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+    .glass-red {
+      background: rgba(220, 38, 38, 0.15);
+      border: 1px solid rgba(248, 113, 113, 0.3);
+    }
+    .glass-blue {
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(96, 165, 250, 0.3);
+    }
+    .slide {
+      display: none;
+      height: 100vh;
+      width: 100vw;
+      padding: 2.5rem 4rem;
+      animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .slide.active { display: flex; flex-direction: column; justify-content: space-between; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @media print {
+      body { overflow: visible; background: white; color: black; }
+      .slide { display: flex !important; height: 100vh; page-break-after: always; padding: 2rem; }
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body class="select-none">
+
+  <!-- Top Controls Bar (No Print) -->
+  <header class="no-print fixed top-0 left-0 right-0 h-14 bg-slate-900/90 backdrop-blur border-b border-slate-800 z-50 flex items-center justify-between px-6">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-teal-600 to-emerald-400 flex items-center justify-center font-bold text-slate-900">HV</div>
+      <span class="font-bold text-lg text-white tracking-wide">HealthVerse <span class="text-xs text-teal-400 font-semibold px-2 py-0.5 rounded bg-teal-950/60 border border-teal-500/30">FINAL YEAR B.TECH CSE</span></span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="text-sm font-mono text-slate-400">Slide <span id="current-slide" class="text-teal-400 font-bold">1</span> / <span id="total-slides">11</span></span>
+      <button onclick="prevSlide()" class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-sm font-semibold transition border border-slate-700">◀ Prev</button>
+      <button onclick="nextSlide()" class="px-3 py-1 rounded-lg bg-teal-600 hover:bg-teal-500 text-sm font-semibold transition text-slate-900 font-bold">Next ▶</button>
+      <button onclick="toggleFullscreen()" class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-sm font-semibold transition border border-slate-700" title="Toggle Fullscreen">⛶ Fullscreen</button>
+      <button onclick="window.print()" class="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-sm font-semibold transition text-slate-900 font-bold" title="Print to PDF">🖨️ PDF</button>
+    </div>
+  </header>
+
+  <!-- Main Slide Container -->
+  <main class="w-full h-full pt-14">
+
+    <!-- ============================================================ -->
+    <!-- SLIDE 1: TITLE -->
+    <!-- ============================================================ -->
+    <section class="slide active" id="slide-1">
+      <div class="my-auto max-w-5xl mx-auto text-center space-y-6">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-950/80 border border-teal-500/40 text-teal-300 text-sm font-semibold">
+          <span>🏥</span> FINAL YEAR B.TECH COMPUTER SCIENCE & ENGINEERING PROJECT (2025–2026)
+        </div>
+        <h1 class="text-6xl font-extrabold tracking-tight bg-gradient-to-r from-teal-300 via-emerald-400 to-teal-100 bg-clip-text text-transparent">
+          HealthVerse
+        </h1>
+        <p class="text-2xl font-semibold text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          Smart Healthcare Resource Discovery & Management Platform
+        </p>
+        <p class="text-slate-400 max-w-2xl mx-auto text-base">
+          A centralized, multi-tier intelligence system uniting geospatial hospital discovery, live bed & resource telemetry, complete 8-group blood bank inventory, and automated distance-aware emergency email notifications.
+        </p>
+
+        <div class="glass max-w-2xl mx-auto rounded-2xl p-6 text-left border border-teal-500/30 grid grid-cols-2 gap-4 mt-8">
+          <div>
+            <div class="text-xs text-teal-400 font-bold uppercase tracking-wider">Developer & Presenter</div>
+            <div class="text-lg font-bold text-white mt-1">Rushi (Rockingrushi)</div>
+            <div class="text-xs text-slate-400 mt-0.5">Dept. of Computer Science & Engineering</div>
+          </div>
+          <div>
+            <div class="text-xs text-emerald-400 font-bold uppercase tracking-wider">Core Tech Stack</div>
+            <div class="text-sm font-mono text-slate-300 mt-1">React 19 + TypeScript + FastAPI</div>
+            <div class="text-xs text-slate-400 mt-0.5">Supabase PostgreSQL (RLS) + Leaflet</div>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-between text-xs text-slate-500 font-mono border-t border-slate-800 pt-3">
+        <span>GitHub: github.com/Rockingrushi/HEALTH-VERSE</span>
+        <span>Slide 1 / 11</span>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SLIDE 2: PROBLEM & SOLUTION -->
+    <!-- ============================================================ -->
+    <section class="slide" id="slide-2">
+      <div>
+        <div class="text-xs font-bold uppercase tracking-wider text-teal-400 font-mono">01 / Problem & Solution</div>
+        <h2 class="text-3xl font-bold text-white mt-1">Problem Statement vs. The HealthVerse Solution</h2>
+      </div>
+
+      <div class="grid grid-cols-2 gap-8 my-auto">
+        <!-- Problem -->
+        <div class="glass-red rounded-2xl p-6 border border-red-500/30 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center text-xl font-bold">✕</div>
+            <h3 class="text-xl font-bold text-red-300">Current Healthcare Challenges</h3>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold">•</span>
+              <span><strong>Information Asymmetry:</strong> Hospital bed availability and ICU capacity are not publicly visible in real time.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold">•</span>
+              <span><strong>Emergency Triage Delays:</strong> Patients spend crucial golden hours calling multiple hospitals to find oxygen and ventilators.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold">•</span>
+              <span><strong>Blood Bank Searching Friction:</strong> Finding matching blood units (e.g. O-, AB+) across scattered centers is slow and uncoordinated.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold">•</span>
+              <span><strong>Ambulance Fleet Opacity:</strong> Lack of insight into available vs. en-route emergency vehicles.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Solution -->
+        <div class="glass-teal rounded-2xl p-6 border border-teal-500/30 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center text-xl font-bold">✓</div>
+            <h3 class="text-xl font-bold text-teal-300">The HealthVerse Solution</h3>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-teal-400 font-bold">•</span>
+              <span><strong>Centralized Discovery Hub:</strong> Single-window portal uniting verified hospitals, beds, ICU, blood, and ambulances.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-teal-400 font-bold">•</span>
+              <span><strong>Live Telemetry Sync:</strong> Direct hospital admin controls update bed counts, waiting time, and pharmacy instantly.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-teal-400 font-bold">•</span>
+              <span><strong>8-Group Blood Matrix:</strong> Real-time inventory tracking for A+, A-, B+, B-, AB+, AB-, O+, O-.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-teal-400 font-bold">•</span>
+              <span><strong>Automated Email Alerts:</strong> Haversine distance-aware notifications sent to patients upon resource availability.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex justify-between text-xs text-slate-500 font-mono border-t border-slate-800 pt-3">
+        <span>HealthVerse — Smart Healthcare Resource Platform</span>
+        <span>Slide 2 / 11</span>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SLIDE 3: SYSTEM ARCHITECTURE -->
+    <!-- ============================================================ -->
+    <section class="slide" id="slide-3">
+      <div>
+        <div class="text-xs font-bold uppercase tracking-wider text-teal-400 font-mono">02 / Architecture</div>
+        <h2 class="text-3xl font-bold text-white mt-1">Multi-Tier System Architecture</h2>
+      </div>
+
+      <div class="grid grid-cols-3 gap-6 my-auto">
+        <!-- Tier 1 -->
+        <div class="glass rounded-2xl p-5 border border-slate-700 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="px-3 py-1 rounded bg-teal-950/80 border border-teal-500/30 text-teal-400 font-bold text-xs inline-block">TIER 1: PRESENTATION</div>
+            <h3 class="text-lg font-bold text-white">React 19 SPA (Vite + TS)</h3>
+            <p class="text-xs text-slate-400">High-performance responsive client interface</p>
+            <ul class="text-xs text-slate-300 space-y-2 pt-2">
+              <li>• Role-based access guards (Patient, Admin, Super)</li>
+              <li>• TanStack React Query for async state caching</li>
+              <li>• Interactive Leaflet India Map canvas</li>
+              <li>• Radix UI accessible components & Tailwind 4</li>
+            </ul>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-teal-400 font-mono">HTTP / HTTPS JSON Requests</div>
+        </div>
+
+        <!-- Tier 2 -->
+        <div class="glass rounded-2xl p-5 border border-slate-700 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="px-3 py-1 rounded bg-blue-950/80 border border-blue-500/30 text-blue-400 font-bold text-xs inline-block">TIER 2: SERVICES</div>
+            <h3 class="text-lg font-bold text-white">FastAPI Microservice</h3>
+            <p class="text-xs text-slate-400">Asynchronous Python 3.11 Backend</p>
+            <ul class="text-xs text-slate-300 space-y-2 pt-2">
+              <li>• Haversine spatial radius calculations</li>
+              <li>• Server-side Resend API email client</li>
+              <li>• Anti-spam 1-hour cooldown evaluator</li>
+              <li>• Pydantic v2 strict payload validation</li>
+            </ul>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-blue-400 font-mono">Zero Key Exposure to Browser</div>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="glass rounded-2xl p-5 border border-slate-700 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="px-3 py-1 rounded bg-emerald-950/80 border border-emerald-500/30 text-emerald-400 font-bold text-xs inline-block">TIER 3: PERSISTENCE</div>
+            <h3 class="text-lg font-bold text-white">Supabase PostgreSQL</h3>
+            <p class="text-xs text-slate-400">Relational Database & Auth</p>
+            <ul class="text-xs text-slate-300 space-y-2 pt-2">
+              <li>• PostgreSQL 15 with foreign key cascades</li>
+              <li>• Row Level Security (RLS) policies</li>
+              <li>• GoTrue JWT user authentication</li>
+              <li>• Object Storage for hospital media assets</li>
+            </ul>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-emerald-400 font-mono">Enforced DB Engine Security</div>
+        </div>
+      </div>
+
+      <div class="flex justify-between text-xs text-slate-500 font-mono border-t border-slate-800 pt-3">
+        <span>HealthVerse — Architecture & Data Pipeline</span>
+        <span>Slide 3 / 11</span>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SLIDE 4: ROLE-BASED ACCESS (RBAC) -->
+    <!-- ============================================================ -->
+    <section class="slide" id="slide-4">
+      <div>
+        <div class="text-xs font-bold uppercase tracking-wider text-teal-400 font-mono">03 / User Roles</div>
+        <h2 class="text-3xl font-bold text-white mt-1">Role-Based Portals & Access Control</h2>
+      </div>
+
+      <div class="grid grid-cols-3 gap-6 my-auto">
+        <!-- Patient -->
+        <div class="glass-teal rounded-2xl p-5 border border-teal-500/30 space-y-3">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">👤</span>
+            <h3 class="text-lg font-bold text-teal-300">Patient Portal</h3>
+          </div>
+          <p class="text-xs text-slate-300">Public & triage user interface</p>
+          <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-teal-500/20">
+            <li>• Hospital discovery with multi-filter search</li>
+            <li>• India-centered Leaflet interactive map</li>
+            <li>• Live telemetry view at <span class="font-mono text-teal-400">/hospitals/:id</span></li>
+            <li>• Side-by-side hospital comparison</li>
+            <li>• Bookmarked favorites & alert creation</li>
+          </ul>
+        </div>
+
+        <!-- Hospital Admin -->
+        <div class="glass-blue rounded-2xl p-5 border border-blue-500/30 space-y-3">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">🏥</span>
+            <h3 class="text-lg font-bold text-blue-300">Hospital Admin</h3>
+          </div>
+          <p class="text-xs text-slate-300">Institutional resource manager</p>
+          <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-blue-500/20">
+            <li>• Hospital profile & logo/banner upload</li>
+            <li>• Bed management: Total, Avail, ICU, Emerg</li>
+            <li>• Equipment: Ventilators, Oxygen, Staff</li>
+            <li>• 8-group blood bank inventory updates</li>
+            <li>• Ambulance dispatch & low-stock alerts</li>
+          </ul>
+        </div>
+
+        <!-- Super Admin -->
+        <div class="glass-emerald rounded-2xl p-5 border border-emerald-500/30 space-y-3">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">👑</span>
+            <h3 class="text-lg font-bold text-emerald-300">Super Admin</h3>
+          </div>
+          <p class="text-xs text-slate-300">Governance & verification authority</p>
+          <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-emerald-500/20">
+            <li>• Hospital registration review (Approve/Reject)</li>
+            <li>• New hospital creation & admin binding</li>
+            <li>• Platform-wide aggregated metrics</li>
+            <li>• System-wide resource occupancy analytics</li>
+            <li>• Chronological audit activity logs</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex justify-between text-xs text-slate-500 font-mono border-t border-slate-800 pt-3">
+        <span>HealthVerse — Role Segmentation</span>
+        <span>Slide 4 / 11</span>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SLIDE 5: GEOSPATIAL MAP -->
+    <!-- ============================================================ -->
+    <section class="slide" id="slide-5">
+      <div>
+        <div class="text-xs font-bold uppercase tracking-wider text-teal-400 font-mono">04 / Mapping Engine</div>
+        <h2 class="text-3xl font-bold text-white mt-1">Interactive Geospatial Map (India Focus)</h2>
+      </div>
+
+      <div class="grid grid-cols-2 gap-8 my-auto">
+        <div class="glass rounded-2xl p-6 border border-slate-700 space-y-4">
+          <h3 class="text-xl font-bold text-teal-300">🗺️ OpenStreetMap + Leaflet Engine</h3>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-teal-400 font-bold">•</span>
+              <span><strong>India Centering:</strong> Canvas initializes at <span class="font-mono text-teal-300">[20.5937, 78.9629]</span> with responsive zoom bounds.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-teal-400 font-bold">•</span>
+              <span><strong>Dynamic Coordinate Markers:</strong> Renders hospital locations directly from database <span class="font-mono text-teal-300">latitude</span> and <span class="font-mono text-teal-300">longitude</span>.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-teal-400 font-bold">•</span>
+              <span><strong>Verified Facility Filter:</strong> Public map strictly renders approved hospitals (<span class="font-mono text-teal-300">is_approved = true</span>).</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-teal-400 font-bold">•</span>
+              <span><strong>Interactive Popups:</strong> Real-time available bed counts, ICU indicator, address, and profile navigation.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="glass-teal rounded-2xl p-6 border border-teal-500/30 flex flex-col justify-center space-y-4 text-center">
+          <div class="text-4xl">📍</div>
+          <h4 class="text-lg font-bold text-white">Spatial Telemetry Workflow</h4>
+          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 text-left font-mono text-xs text-teal-300 space-y-1">
+            <div>1. Client queries approved hospitals</div>
+            <div>2. PostgreSQL returns coordinates (lat, lng)</div>
+            <div>3. Leaflet plots custom SVG map pins</div>
+            <div>4. User click triggers live telemetry popup</div>
+            <div>5. Haversine distance matches patient radius</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-between text-xs text-slate-500 font-mono border-t border-slate-800 pt-3">
+        <span>HealthVerse — Spatial Discovery Module</span>
+        <span>Slide 5 / 11</span>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SLIDE 6: RESOURCES & BLOOD INVENTORY -->
+    <!-- ============================================================ -->
+    <section class="slide" id="slide-6">
+      <div>
+        <div class="text-xs font-bold uppercase tracking-wider text-teal-400 font-mono">05 / Resource Management</div>
+        <h2 class="text-3xl font-bold text-white mt-1">Live Telemetry & 8-Group Blood Inventory</h2>
+      </div>
+
+      <div class="space-y-6 my-auto">
+        <!-- Resource Bar -->
+        <div class="glass rounded-2xl p-5 border border-slate-700">
+          <h3 class="text-base font-bold text-teal-400 mb-3 uppercase tracking-wider text-xs">📊 Monitored Hospital Resources</h3>
+          <div class="grid grid-cols-6 gap-3 text-center">
+            <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700">
+              <div class="text-xs text-slate-400">Total & Avail</div>
+              <div class="text-lg font-bold text-white mt-1">🛏️ Beds</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700">
+              <div class="text-xs text-slate-400">Critical Care</div>
+              <div class="text-lg font-bold text-blue-400 mt-1">🚨 ICU Beds</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700">
+              <div class="text-xs text-slate-400">Respiratory</div>
+              <div class="text-lg font-bold text-teal-400 mt-1">💨 Ventilators</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700">
+              <div class="text-xs text-slate-400">Medical Gas</div>
+              <div class="text-lg font-bold text-emerald-400 mt-1">🧪 Oxygen</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700">
+              <div class="text-xs text-slate-400">Staff Count</div>
+              <div class="text-lg font-bold text-purple-400 mt-1">👨‍⚕️ Doctors</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700">
+              <div class="text-xs text-slate-400">Operations</div>
+              <div class="text-lg font-bold text-amber-400 mt-1">💊 Pharmacy</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blood Matrix -->
+        <div class="glass-red rounded-2xl p-5 border border-red-500/30">
+          <h3 class="text-base font-bold text-red-400 mb-3 uppercase tracking-wider text-xs">🩸 8 Blood Groups Inventory (Live Database Upsert)</h3>
+          <div class="grid grid-cols-8 gap-2 text-center font-mono">
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-red-500/30"><div class="text-lg font-extrabold text-red-400">A+</div><div class="text-xs text-slate-400 mt-1">Units</div></div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-red-500/30"><div class="text-lg font-extrabold text-red-400">A-</div><div class="text-xs text-slate-400 mt-1">Units</div></div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-red-500/30"><div class="text-lg font-extrabold text-red-400">B+</div><div class="text-xs text-slate-400 mt-1">Units</div></div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-red-500/30"><div class="text-lg font-extrabold text-red-400">B-</div><div class="text-xs text-slate-400 mt-1">Units</div></div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-red-500/30"><div class="text-lg font-extrabold text-red-400">AB+</div><div class="text-xs text-slate-400 mt-1">Units</div></div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-red-500/30"><div class="text-lg font-extrabold text-red-400">AB-</div><div class="text-xs text-slate-400 mt-1">Units</div></div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-red-500/30"><div class="text-lg font-extrabold text-red-400">O+</div><div class="text-xs text-slate-400 mt-1">Units</div></div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-red-500/30"><div class="text-lg font-extrabold text-red-400">O-</div><div class="text-xs text-slate-400 mt-1">Units</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-between text-xs text-slate-500 font-mono border-t border-slate-800 pt-3">
+        <span>HealthVerse — Live Resource Telemetry</span>
+        <span>Slide 6 / 11</span>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SLIDE 7: HEALTHVERSE ALERTS -->
+    <!-- ============================================================ -->
+    <section class="slide" id="slide-7">
+      <div>
+        <div class="text-xs font-bold uppercase tracking-wider text-teal-400 font-mono">06 / Automated Notifications</div>
+        <h2 class="text-3xl font-bold text-white mt-1">HealthVerse Alerts: Smart Email Engine</h2>
+      </div>
+
+      <div class="grid grid-cols-4 gap-4 my-auto">
+        <div class="glass-red rounded-2xl p-4 border border-red-500/30 space-y-2">
+          <div class="text-2xl">🩸</div>
+          <h4 class="font-bold text-red-300 text-sm">Blood Alert</h4>
+          <p class="text-xs text-slate-300">Triggers when hospital adds stock > 0 for subscribed blood group.</p>
+          <div class="text-xs font-mono text-red-400 pt-2 border-t border-red-500/20">Subject: 🩸 [Group] Availability Alert</div>
+        </div>
+
+        <div class="glass-blue rounded-2xl p-4 border border-blue-500/30 space-y-2">
+          <div class="text-2xl">🚨</div>
+          <h4 class="font-bold text-blue-300 text-sm">ICU Bed Opening</h4>
+          <p class="text-xs text-slate-300">Triggers when ICU bed availability transitions from 0 -> 1+.</p>
+          <div class="text-xs font-mono text-blue-400 pt-2 border-t border-blue-500/20">Subject: 🚨 ICU Availability Alert</div>
+        </div>
+
+        <div class="glass rounded-2xl p-4 border border-amber-500/30 space-y-2">
+          <div class="text-2xl">⚠️</div>
+          <h4 class="font-bold text-amber-300 text-sm">Low Resource Alert</h4>
+          <p class="text-xs text-slate-300">Warns Hospital Admin when beds/ICU drop to or below threshold.</p>
+          <div class="text-xs font-mono text-amber-400 pt-2 border-t border-amber-500/20">Subject: ⚠️ Low ICU Availability</div>
+        </div>
+
+        <div class="glass-emerald rounded-2xl p-4 border border-emerald-500/30 space-y-2">
+          <div class="text-2xl">✅</div>
+          <h4 class="font-bold text-emerald-300 text-sm">Approval Email</h4>
+          <p class="text-xs text-slate-300">Notifies Hospital Admin when Super Admin approves hospital.</p>
+          <div class="text-xs font-mono text-emerald-400 pt-2 border-t border-emerald-500/20">Subject: ✅ Hospital Approved</div>
+        </div>
+      </div>
+
+      <div class="glass rounded-xl p-4 border border-slate-700 flex items-center justify-between text-xs">
+        <div class="flex items-center gap-2">
+          <span class="text-teal-400 font-bold">📍 Haversine Radius Math:</span>
+          <span class="text-slate-300">Matches subscribers within 5 KM, 10 KM, 25 KM, 50 KM</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-400 font-bold">🛡️ Anti-Spam Guard:</span>
+          <span class="text-slate-300">Enforces 1-hour cooldown window (last_triggered_at)</span>
+        </div>
+      </div>
+
+      <div class="flex justify-between text-xs text-slate-500 font-mono border-t border-slate-800 pt-3">
+        <span>HealthVerse — Automated Email Notifications</span>
+        <span>Slide 7 / 11</span>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SLIDE 8: DATABASE & RLS -->
+    <!-- ============================================================ -->
+    <section class="slide" id="slide-8">
+      <div>
+        <div class="text-xs font-bold uppercase tracking-wider text-teal-400 font-mono">07 / Data Security</div>
+        <h2 class="text-3xl font-bold text-white mt-1">Database Design & Row Level Security (RLS)</h2>
+      </div>
+
+      <div class="grid grid-cols-2 gap-8 my-auto">
+        <div class="glass rounded-2xl p-6 border border-slate-700 space-y-3">
+          <h3 class="text-lg font-bold text-teal-300">🗄️ Relational PostgreSQL Schema</h3>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li>• <strong class="text-white">hospitals:</strong> id, name, lat, lng, address, contact, is_approved, admin_id</li>
+            <li>• <strong class="text-white">hospital_resources:</strong> hospital_id, total/available/icu beds, staff</li>
+            <li>• <strong class="text-white">blood_inventory:</strong> hospital_id, blood_group, units_available</li>
+            <li>• <strong class="text-white">ambulances:</strong> hospital_id, vehicle_number, status, contact</li>
+            <li>• <strong class="text-white">health_alerts:</strong> user_id, alert_type, blood_group, radius_km, email</li>
+            <li>• <strong class="text-white">email_notifications:</strong> recipient_email, subject, status, sent_at</li>
+          </ul>
+        </div>
+
+        <div class="glass-teal rounded-2xl p-6 border border-teal-500/30 space-y-3">
+          <h3 class="text-lg font-bold text-emerald-300">🔒 RLS Security & Integrity Rules</h3>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li>• <strong class="text-white">Public Access:</strong> Read-only access to approved hospitals (<span class="font-mono text-teal-300">is_approved = true</span>).</li>
+            <li>• <strong class="text-white">Admin Scoping:</strong> Hospital Admins can only mutate resources where <span class="font-mono text-teal-300">admin_id = auth.uid()</span>.</li>
+            <li>• <strong class="text-white">Zero Secret Leakage:</strong> Service role keys & Resend secrets isolated to Python backend.</li>
+            <li>• <strong class="text-white">Cascade Deletes:</strong> Foreign keys enforce data integrity upon hospital removal.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex justify-between text-xs text-slate-500 font-mono border-t border-slate-800 pt-3">
+        <span>HealthVerse — Security & Data Model</span>
+        <span>Slide 8 / 11</span>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SLIDE 9: TECH STACK -->
+    <!-- ============================================================ -->
+    <section class="slide" id="slide-9">
+      <div>
+        <div class="text-xs font-bold uppercase tracking-wider text-teal-400 font-mono">08 / Technology Stack</div>
+        <h2 class="text-3xl font-bold text-white mt-1">Full-Stack Frameworks & Libraries</h2>
+      </div>
+
+      <div class="grid grid-cols-3 gap-6 my-auto text-xs">
+        <div class="glass rounded-2xl p-5 border border-slate-700 space-y-3">
+          <h3 class="font-bold text-teal-400 text-sm">Frontend Framework</h3>
+          <ul class="space-y-1.5 text-slate-300">
+            <li>• React 19 (Component library)</li>
+            <li>• TypeScript 6 (Static typing)</li>
+            <li>• Vite 8 (Modern bundler)</li>
+            <li>• Tailwind CSS 4 (Utility styling)</li>
+            <li>• React Router 7 (SPA Routing)</li>
+            <li>• TanStack React Query 5 (Caching)</li>
+            <li>• Leaflet & React-Leaflet (Maps)</li>
+            <li>• Radix UI Primitives (Modals/Tabs)</li>
+          </ul>
+        </div>
+
+        <div class="glass rounded-2xl p-5 border border-slate-700 space-y-3">
+          <h3 class="font-bold text-blue-400 text-sm">Backend & APIs</h3>
+          <ul class="space-y-1.5 text-slate-300">
+            <li>• FastAPI (Python 3.11 ASGI)</li>
+            <li>• Uvicorn (Web Server)</li>
+            <li>• Pydantic v2 (Data Validation)</li>
+            <li>• HTTPX (Async HTTP client)</li>
+            <li>• Resend API (Email Delivery)</li>
+            <li>• Haversine Spatial Engine</li>
+            <li>• Modular Router Structure</li>
+          </ul>
+        </div>
+
+        <div class="glass rounded-2xl p-5 border border-slate-700 space-y-3">
+          <h3 class="font-bold text-emerald-400 text-sm">Database & Tooling</h3>
+          <ul class="space-y-1.5 text-slate-300">
+            <li>• Supabase PostgreSQL 15</li>
+            <li>• Row Level Security (RLS)</li>
+            <li>• GoTrue Auth (JWT Sessions)</li>
+            <li>• Supabase Storage (Media)</li>
+            <li>• Git & GitHub (Version Control)</li>
+            <li>• Python-PPTX (Deck Generator)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex justify-between text-xs text-slate-500 font-mono border-t border-slate-800 pt-3">
+        <span>HealthVerse — Tech Specifications</span>
+        <span>Slide 9 / 11</span>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SLIDE 10: TESTING & FUTURE ROADMAP -->
+    <!-- ============================================================ -->
+    <section class="slide" id="slide-10">
+      <div>
+        <div class="text-xs font-bold uppercase tracking-wider text-teal-400 font-mono">09 / QA & Roadmap</div>
+        <h2 class="text-3xl font-bold text-white mt-1">Verification Audit & Future Scope</h2>
+      </div>
+
+      <div class="grid grid-cols-2 gap-8 my-auto">
+        <div class="glass-emerald rounded-2xl p-6 border border-emerald-500/30 space-y-3 text-xs">
+          <h3 class="text-base font-bold text-emerald-300">🧪 Testing & Verification Results</h3>
+          <ul class="space-y-2 text-slate-300">
+            <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✔</span> <span>TypeScript Production Build: <strong class="text-white">Exit Code 0 (0 errors)</strong></span></li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✔</span> <span>Super Admin approval workflow verified on live database</span></li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✔</span> <span>Live resource & 8 blood groups upsert persistence confirmed</span></li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✔</span> <span>India map dynamic coordinate marker rendering verified</span></li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✔</span> <span>Resend API transactional email delivery verified (200 OK)</span></li>
+          </ul>
+        </div>
+
+        <div class="glass-teal rounded-2xl p-6 border border-teal-500/30 space-y-3 text-xs">
+          <h3 class="text-base font-bold text-teal-300">🚀 Future Enhancements</h3>
+          <ul class="space-y-2 text-slate-300">
+            <li>• <strong>Real-Time WebSockets:</strong> Sub-second live sync via Supabase Realtime</li>
+            <li>• <strong>Live GPS Ambulance Tracking:</strong> Moving vehicle telemetry</li>
+            <li>• <strong>Doctor OPD Booking:</strong> Patient token generation & slot scheduling</li>
+            <li>• <strong>AI-Assisted Emergency Routing:</strong> Traffic & capacity-aware hospital triage</li>
+            <li>• <strong>Multilingual Support:</strong> Telugu, Hindi, Tamil, Kannada localization</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex justify-between text-xs text-slate-500 font-mono border-t border-slate-800 pt-3">
+        <span>HealthVerse — Verification & Future Scope</span>
+        <span>Slide 10 / 11</span>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SLIDE 11: CONCLUSION & DEMO -->
+    <!-- ============================================================ -->
+    <section class="slide" id="slide-11">
+      <div class="my-auto max-w-4xl mx-auto text-center space-y-6">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-sm font-semibold">
+          <span>🎯</span> PROJECT SUMMARY
+        </div>
+        <h2 class="text-5xl font-extrabold text-white">Conclusion & Live Demo</h2>
+        <p class="text-xl text-teal-300 max-w-2xl mx-auto">
+          HealthVerse provides an efficient, transparent, and distance-aware healthcare discovery network across India.
+        </p>
+
+        <div class="glass rounded-2xl p-6 border border-slate-700 text-left space-y-3 text-sm text-slate-300">
+          <div class="flex items-center gap-2 text-white font-semibold"><span>✔</span> Unified hospital, ICU, ventilator, blood inventory, and ambulance discovery.</div>
+          <div class="flex items-center gap-2 text-white font-semibold"><span>✔</span> Enterprise-grade architecture with Row Level Security (RLS) in PostgreSQL.</div>
+          <div class="flex items-center gap-2 text-white font-semibold"><span>✔</span> Distance-aware automated email alerts with anti-spam cooldown protection.</div>
+          <div class="flex items-center gap-2 text-white font-semibold"><span>✔</span> Full IEEE 830 SRS documentation and production-ready source code.</div>
+        </div>
+
+        <div class="pt-4">
+          <div class="text-2xl font-bold text-emerald-400">Thank You! Open for Questions & Live Demonstration</div>
+          <div class="text-xs text-slate-500 font-mono mt-2">Repository: https://github.com/Rockingrushi/HEALTH-VERSE.git</div>
+        </div>
+      </div>
+
+      <div class="flex justify-between text-xs text-slate-500 font-mono border-t border-slate-800 pt-3">
+        <span>HealthVerse — Final Presentation Deck</span>
+        <span>Slide 11 / 11</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Keyboard & Navigation Script -->
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 11;
+
+    function showSlide(index) {
+      if (index < 1) index = 1;
+      if (index > totalSlides) index = totalSlides;
+      currentSlide = index;
+
+      document.querySelectorAll('.slide').forEach((slide, i) => {
+        slide.classList.toggle('active', i + 1 === currentSlide);
+      });
+
+      document.getElementById('current-slide').innerText = currentSlide;
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function prevSlide() { showSlide(currentSlide - 1); }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        prevSlide();
+      } else if (e.key === 'Home') {
+        showSlide(1);
+      } else if (e.key === 'End') {
+        showSlide(totalSlides);
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullscreen();
+      }
+    });
+  </script>
+</body>
+</html>
