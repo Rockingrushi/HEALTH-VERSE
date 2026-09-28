@@ -27,12 +27,18 @@ export default function Navbar() {
           <Link to="/map" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors flex items-center gap-1">
             <MapPin className="h-4 w-4" /> India Map
           </Link>
-          <Link to="/compare" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors hidden sm:inline">
-            Compare Hospitals
+          <Link to="/compare" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors hidden lg:inline">
+            Compare
           </Link>
-          <Link to="/alerts" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors hidden md:inline flex items-center gap-1">
+          <Link to="/alerts" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors hidden md:inline">
             Alerts
           </Link>
+          <a href="/presentation.html" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-amber-500 hover:text-amber-400 transition-colors hidden sm:inline flex items-center gap-1 font-semibold">
+            📽️ PPT Deck
+          </a>
+          <a href="/SRS_DOCUMENT.md" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-emerald-500 hover:text-emerald-400 transition-colors hidden sm:inline flex items-center gap-1 font-semibold">
+            📑 SRS
+          </a>
         </div>
 
         <div className="flex items-center gap-3">

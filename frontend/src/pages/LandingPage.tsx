@@ -198,6 +198,121 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ── ALL-IN-ONE PROJECT MASTER HUB ── */}
+      <section className="py-12 bg-slate-950 text-white border-y border-slate-800 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-teal-900/20 via-slate-950 to-slate-950" />
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-950 border border-teal-500/40 text-teal-300 text-xs font-bold uppercase tracking-wider">
+              <span>🚀</span> Unified Project Master Hub
+            </div>
+            <h2 className="text-3xl md:text-4xl font-heading font-extrabold tracking-tight bg-gradient-to-r from-teal-300 via-emerald-400 to-teal-100 bg-clip-text text-transparent">
+              All HealthVerse Modules in One Place
+            </h2>
+            <p className="text-slate-400 text-sm">
+              Direct 1-click access to all portals, role-based dashboards, interactive mapping, emergency alert engine, presentation deck, and IEEE 830 SRS documentation.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* 1. Core Portals */}
+            <div className="rounded-2xl p-5 bg-slate-900/90 border border-teal-500/30 shadow-xl flex flex-col justify-between space-y-4 hover:border-teal-500/60 transition-all">
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 text-teal-400 font-bold text-sm">
+                  <span className="p-2 rounded-lg bg-teal-500/20 text-teal-300">🗺️</span>
+                  <span>Portals & Maps</span>
+                </div>
+                <div className="space-y-2 text-xs">
+                  <Link to="/map" className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-200 transition font-medium border border-slate-700/60">
+                    <span>📍 India Live Map</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-teal-400" />
+                  </Link>
+                  <Link to="/dashboard/patient" className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-200 transition font-medium border border-slate-700/60">
+                    <span>👤 Patient Discovery</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-teal-400" />
+                  </Link>
+                  <Link to="/compare" className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-200 transition font-medium border border-slate-700/60">
+                    <span>⚖️ Hospital Comparison</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-teal-400" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* 2. Admin Dashboards */}
+            <div className="rounded-2xl p-5 bg-slate-900/90 border border-blue-500/30 shadow-xl flex flex-col justify-between space-y-4 hover:border-blue-500/60 transition-all">
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
+                  <span className="p-2 rounded-lg bg-blue-500/20 text-blue-300">🏥</span>
+                  <span>Admin Control Panels</span>
+                </div>
+                <div className="space-y-2 text-xs">
+                  <Link to="/dashboard/hospital" className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-200 transition font-medium border border-slate-700/60">
+                    <span>🏥 Hospital Admin Panel</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-blue-400" />
+                  </Link>
+                  <Link to="/dashboard/superadmin" className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-200 transition font-medium border border-slate-700/60">
+                    <span>👑 Super Admin Governance</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-blue-400" />
+                  </Link>
+                  <Link to="/alerts" className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-200 transition font-medium border border-slate-700/60">
+                    <span>🔔 HealthVerse Alerts Hub</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-blue-400" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* 3. Academic Presentation & Docs */}
+            <div className="rounded-2xl p-5 bg-slate-900/90 border border-amber-500/30 shadow-xl flex flex-col justify-between space-y-4 hover:border-amber-500/60 transition-all">
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 text-amber-400 font-bold text-sm">
+                  <span className="p-2 rounded-lg bg-amber-500/20 text-amber-300">📽️</span>
+                  <span>Presentation & SRS</span>
+                </div>
+                <div className="space-y-2 text-xs">
+                  <a href="/presentation.html" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-2.5 rounded-xl bg-amber-950/40 hover:bg-amber-950/60 text-amber-200 transition font-medium border border-amber-500/40">
+                    <span>📽️ 11-Slide Web PPT</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-amber-400" />
+                  </a>
+                  <a href="/HealthVerse_Presentation.pptx" download className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-200 transition font-medium border border-slate-700/60">
+                    <span>📥 Download .PPTX File</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-amber-400" />
+                  </a>
+                  <a href="/SRS_DOCUMENT.md" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-200 transition font-medium border border-slate-700/60">
+                    <span>📑 IEEE 830 SRS Document</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-amber-400" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* 4. Backend & API Services */}
+            <div className="rounded-2xl p-5 bg-slate-900/90 border border-emerald-500/30 shadow-xl flex flex-col justify-between space-y-4 hover:border-emerald-500/60 transition-all">
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                  <span className="p-2 rounded-lg bg-emerald-500/20 text-emerald-300">⚙️</span>
+                  <span>Backend & API Services</span>
+                </div>
+                <div className="space-y-2 text-xs">
+                  <a href="http://localhost:8000" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-200 transition font-medium border border-slate-700/60">
+                    <span>⚙️ FastAPI Server (8000)</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-emerald-400" />
+                  </a>
+                  <a href="http://localhost:8000/docs" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-200 transition font-medium border border-slate-700/60">
+                    <span>📖 Swagger API Docs</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-emerald-400" />
+                  </a>
+                  <div className="flex items-center justify-between p-2.5 rounded-xl bg-emerald-950/40 text-emerald-300 font-mono text-[11px] border border-emerald-500/30">
+                    <span>🟢 All Services Live & Connected</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── STATS ── */}
       <section className="py-16 bg-gradient-to-r from-primary to-secondary text-white">
         <div className="container mx-auto px-4">

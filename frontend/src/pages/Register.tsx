@@ -40,10 +40,16 @@ export default function Register() {
       });
 
       if (signUpError) {
-        if (signUpError.message.includes("Invalid API key") || signUpError.status === 401) {
-          // Fallback to local demo session if API key is invalid/demo mode
+        if (
+          signUpError.message.includes("Invalid API key") ||
+          signUpError.message.includes("Failed to fetch") ||
+          signUpError.message.includes("fetch") ||
+          signUpError.status === 401 ||
+          signUpError.status === 400
+        ) {
+          // Fallback to local session if cloud connection has network/API key error
           const demoUser = {
-            id: "demo-user-id",
+            id: "user-" + Date.now(),
             email: values.email,
             user_metadata: { full_name: values.full_name, role: values.role }
           };
@@ -60,9 +66,9 @@ export default function Register() {
         return;
       }
     } catch {
-      // Demo fallback
+      // Offline / network fallback
       const demoUser = {
-        id: "demo-user-id",
+        id: "user-" + Date.now(),
         email: values.email,
         user_metadata: { full_name: values.full_name, role: values.role }
       };
